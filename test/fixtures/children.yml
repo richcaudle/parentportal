@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  class_id: 1
+  firstname: MyString
+  lastname: MyString
+  dob: 2013-06-30 10:37:08
+  picture: MyString
+
+two:
+  class_id: 1
+  firstname: MyString
+  lastname: MyString
+  dob: 2013-06-30 10:37:08
+  picture: MyString

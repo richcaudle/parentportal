@@ -1,0 +1,11 @@
+<% content_for :content do %>  
+  <header class="navbar navbar navbar-fixed-top">
+    <nav class="navbar-inner">
+      <div class="container">
+        <%= render 'layouts/public_navigation' %>
+      </div>
+    </nav>
+  </header>
+  <%= yield %>
+<% end %>
+<%= render template: "layouts/application" %>

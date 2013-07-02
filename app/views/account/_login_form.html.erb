@@ -1,0 +1,17 @@
+<% if notice %>
+    <p id="notice"><%= notice %></p> 
+<% end %>
+
+<%= form_for(@user, :url => "login_action") do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, 'Password' %><br/>
+    <%= f.password_field :password, :size => 40 %>
+  </div>
+  <div class="actions">
+    <input type="submit" value="Submit" />
+  </div>
+<% end %>

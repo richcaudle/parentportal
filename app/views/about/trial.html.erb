@@ -1,0 +1,31 @@
+<div class="banner">
+  <div class="banner-inner">
+    <div class="item">
+      <img src="/assets/whiteboard.jpg" alt="">
+      <div class="container">
+        <div class="banner-caption">
+          <h1>Put us to the test</h1>
+          <p class="lead">Money is tight, we understand that. Before you put your hand in your pocket or nervously approach your headmaster for cash, give us a quick go!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container marketing">
+  <div class="content">
+    <h1>Request Free Trial</h1>
+    <p>Try our system for 30 days without charge by completing this form:</p>
+    <%= form_tag("trial_action", method: "post") do %>
+      <%= label_tag(:name, "Name:") %>
+      <%= text_field_tag(:name) %>
+      <%= label_tag(:email, "Email address:") %>
+      <%= text_field_tag(:email) %>
+      <%= label_tag(:school, "School / nursery name:") %>
+      <%= text_field_tag(:school) %>
+      <%= label_tag(:children, "Number of children:") %>
+      <%= text_field_tag(:children) %><br/>
+      <%= submit_tag("Submit") %>
+    <% end %>
+  </div>
+</div>

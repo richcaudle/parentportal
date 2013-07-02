@@ -1,0 +1,11 @@
+<% if notice %>
+    <p id="notice"><%= notice %></p> 
+<% end %>
+<h1>Hi there!</h1>
+<% if is_logged_in %>
+	<p>Welcome back!</p>
+<% else %>
+	<p>Welcome to parent portal.</p>
+	<p><%= link_to "Log in", :controller => "account", :action => "login" %></p>
+	<p><%= link_to "Register", :controller => "account", :action => "register" %></p>
+<% end %>

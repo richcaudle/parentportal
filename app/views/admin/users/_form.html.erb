@@ -1,0 +1,61 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='row'>
+    <div class='span6'>
+        <h2>Details</h2>
+        <div class="field">
+          <%= f.label :firstname %><br />
+          <%= f.text_field :firstname %>
+        </div>
+        <div class="field">
+          <%= f.label :lastname %><br />
+          <%= f.text_field :lastname %>
+        </div>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.text_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :password, 'Password' %><br/>
+          <%= f.password_field :password, :size => 40 %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation, 'Confirm' %><br/>
+          <%= f.password_field :password_confirmation, :size => 40 %>
+        </div>
+    </div>
+    <div class='span6'>
+      <div class='well'>
+        <h2>Permissions</h2>
+        <div class="field">
+          <ul>
+            <li>
+              <input name='role' type='radio' value='super' /> Super User
+            </li>
+            <li>
+              <input name='role' type='radio' value='admin' /> School Admin User
+              <select></select>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

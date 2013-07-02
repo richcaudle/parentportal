@@ -1,0 +1,54 @@
+Parent Portal
+
+Styling
+	* Bootstrap
+Account	
+	User (firstname, lastname, email, password)
+		* Admin: Create, List, Update
+		* Register
+		* Login
+		* Logout
+		* Update Password
+		Forgotten Password
+		Payment / upgrade
+		Stop access for logged-in users to: 
+			Forgotten password
+			* Register
+			* Login
+		Enforce password length etc.
+	Organisation
+		Register
+		Add / invite user
+		Remove user
+		Update profile
+		Payment / upgrade
+Admin
+	Enforce relationships between roles, users etc..
+	Roles
+		Seed super role in DB + a user
+		Restrict to Super User
+		Index
+		Add
+		Delete
+		Update
+Pupils
+	View all
+	Pupil
+		View one
+		Add note / photo
+		View report
+	Class / group
+		Create
+		Add pupil
+		Remove pupil
+Integrations
+	Email
+		Setup accounts
+		Process incoming email
+		Intray (unprocessed emails)
+
+
+INSPIRATION
+
+Concept / features: https://www.expensify.com
+Design: pipelinedeals.com home page

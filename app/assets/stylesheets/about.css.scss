@@ -1,0 +1,219 @@
+// Place all the styles related to the about controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* BANNER
+-------------------------------------------------- */
+
+.banner {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.banner .container {
+  position: relative;
+  z-index: 9;
+}
+
+.banner-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner .item {
+  height: 500px;
+}
+
+.banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+
+.banner-caption {
+  background-color: rgba(0,0,0,.4);
+  position: absolute;
+  top: 0;
+  left: 100px;
+  max-width: 850px;
+  padding: 10px 20px;
+  margin-top: 200px;
+}
+
+.banner-caption h1
+{
+  font-size: 3em;  
+}
+
+.banner-caption h1,
+.banner-caption .lead {
+  margin: 0;
+  line-height: 1.5;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.banner-caption .btn {
+  margin-top: 10px;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .span4 {
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing h3 {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 3em;
+  margin-bottom: 16px;
+}
+.marketing .span4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+.featurette {
+  padding-top: 60px; /* Vertically center images part 1: add padding above and below text. */
+  overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.featurette-image {
+  margin-top: -60px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.featurette-image.pull-left {
+  margin-right: 40px;
+}
+.featurette-image.pull-right {
+  margin-left: 40px;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (max-width: 979px) {
+
+  .banner .item {
+    height: 500px;
+  }
+  .banner img {
+    width: auto;
+    height: 500px;
+  }
+
+  .featurette {
+    height: auto;
+    padding: 0;
+  }
+  .featurette-image.pull-left,
+  .featurette-image.pull-right {
+    display: block;
+    float: none;
+    max-width: 40%;
+    margin: 0 auto 20px;
+  }
+}
+
+
+@media (max-width: 767px) {
+
+  .banner {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .banner .container {
+
+  }
+  .banner .item {
+    height: 300px;
+  }
+  .banner img {
+    height: 300px;
+  }
+  .banner-caption {
+    width: 65%;
+    padding: 0 70px;
+    margin-top: 100px;
+  }
+  .banner-caption h1 {
+    font-size: 30px;
+  }
+  .banner-caption .lead,
+  .banner-caption .btn {
+    font-size: 18px;
+  }
+
+  .marketing .span4 + .span4 {
+    margin-top: 40px;
+  }
+
+  .featurette-heading {
+    font-size: 30px;
+  }
+  .featurette .lead {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+}
+
+/* PRICING */
+.pricing
+{
+  padding: 24px 120px;
+  font-size: 1.5em;
+}
+
+.pricing .table th
+{
+  background-color: #0088cc;
+  color: white;
+  font-weight: normal;
+}
+
+.pricing th, .pricing td
+{
+  text-align: center !important;
+  border-left: 1px solid #dddddd;
+}
+
+.pricing tbody tr td:first-child, .pricing thead th:first-child
+{
+  font-weight: bold;
+  text-align: left !important;
+  border-left: none;
+  background-color: transparent;
+}
+
+.pricing tbody tr:last-child
+{
+  background-color: #fbb450;
+  vertical-align: middle;
+}

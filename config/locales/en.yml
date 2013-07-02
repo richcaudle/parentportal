@@ -1,0 +1,14 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  helpers:
+    label:
+      user:
+        firstname: "First name"
+        lastname: "Last name"
+        email: "Email address"
+    submit:
+      user:
+        create: "Register"
+        update: "Update"
