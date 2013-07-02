@@ -14,18 +14,33 @@
 
 <div class="container marketing">
   <div class="content">
-    <h1>Request Free Trial</h1>
-    <p>Try our system for 30 days without charge by completing this form:</p>
-    <%= form_tag("trial_action", method: "post") do %>
-      <%= label_tag(:name, "Name:") %>
-      <%= text_field_tag(:name) %>
-      <%= label_tag(:email, "Email address:") %>
-      <%= text_field_tag(:email) %>
-      <%= label_tag(:school, "School / nursery name:") %>
-      <%= text_field_tag(:school) %>
-      <%= label_tag(:children, "Number of children:") %>
-      <%= text_field_tag(:children) %><br/>
-      <%= submit_tag("Submit") %>
-    <% end %>
+    <h1>Free Trial Request</h1>
+    <div class='row contact'>
+      <div class='span6'>
+        <%= form_tag("trial_action", method: "post") do %>
+          <%= label_tag(:name, "Name:") %>
+          <%= text_field_tag(:name) %>
+          <%= label_tag(:email, "Email address:") %>
+          <%= text_field_tag(:email) %>
+          <%= label_tag(:school, "School / nursery name:") %>
+          <%= text_field_tag(:school) %>
+          <%= label_tag(:children, "Number of children:") %>
+          <%= text_field_tag(:children) %><br/>
+          <%= submit_tag("Submit") %>
+        <% end %>
+      </div>
+      <div class='span5'>
+        <div class='well'>
+          <h4>Thanks for getting in touch</h4>
+          <p>Try our system for 30 days without charge by completing this form. During the trial you'll be able to:</p>
+          <ul>
+              <li>Create journals and add entries</li>
+              <li>Print and email your journals</li>
+              <li>Customise your journals to your heart's content</li>
+          </ul>
+          <p>In fact there are no limits, we'll just freeze your account when the trial ends.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
