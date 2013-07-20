@@ -1,30 +1,28 @@
-Parent Portal
 
 Styling
-	* Bootstrap
+	*+ Bootstrap
 Account	
 	User (firstname, lastname, email, password)
-		* Admin: Create, List, Update
-		* Register
-		* Login
-		* Logout
-		* Update Password
-		Forgotten Password
-		Payment / upgrade
-		Stop access for logged-in users to: 
-			Forgotten password
-			* Register
-			* Login
-		Enforce password length etc.
+		*+ Admin: Create, List, Update
+		*+ Register
+		*+ Login
+		*+ Logout
+		*+ Update Password
+		*+ Forgotten Password
+		*+ Stop access for logged-in users to: 
+			*+ Forgotten password
+			*+ Register
+			*+ Login
+		*+ Enforce password length, email format
 	Organisation
 		Register
 		Add / invite user
 		Remove user
 		Update profile
-		Payment / upgrade
+	Payment / upgrades etc.	
 Admin
-	Enforce relationships between roles, users etc..
-	Roles
+	+ Enforce relationships between roles, users etc..
+	+ Roles
 		Seed super role in DB + a user
 		Restrict to Super User
 		Index
@@ -32,20 +30,32 @@ Admin
 		Delete
 		Update
 Pupils
-	View all
-	Pupil
-		View one
-		Add note / photo
+	+ View all
+		For each, summaries no. of entries and goal progress
+	+ Pupil
+		+ View one
+			With goals progress
 		View report
+	+ Entry types
+		+ Text
+		+ Photo (+ optional text)
+		+ Observation (different to text)
+		+ 'Art'
 	Class / group
 		Create
 		Add pupil
 		Remove pupil
+	Tagging
+		Setup standard goals
+		Tag entries with goals
+
 Integrations
-	Email
-		Setup accounts
-		Process incoming email
-		Intray (unprocessed emails)
+	+ Email
+		Setup email addresses
+		+ Process incoming email
+		+ Intray (unprocessed emails)
+		Email photo, with text
+			Pick up child name, group name, class name from subject
 
 
 INSPIRATION

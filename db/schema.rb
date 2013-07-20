@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130630173708) do
+ActiveRecord::Schema.define(:version => 20130720204127) do
 
   create_table "children", :force => true do |t|
     t.integer  "class_id"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20130630173708) do
     t.string   "picture"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "forgot_pwd_tokens", :force => true do |t|
+    t.integer  "account_id"
+    t.string   "token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "consumed"
   end
 
   create_table "roles", :force => true do |t|

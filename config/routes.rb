@@ -21,9 +21,15 @@ Parentportal::Application.routes.draw do
   get "account/login"
   get "account/logout"
   get "account/updatepassword"
+  get "account/forgotpassword"
+  get "account/forgotpassword_sent"
+  get "account/forgotpassword_return"
   post "account/register_action"
   post "account/login_action"
   post "account/updatepassword_action"
+  post "account/forgotpassword_action"
+  post "account/forgotpassword_update"
+  post "account/forgotpassword_updateaction"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -38,6 +44,7 @@ Parentportal::Application.routes.draw do
   match 'home' => 'home#index', :as => :home
   match 'account/login' => 'account#login', :as => :login
   match 'account/logout' => 'account#logout', :as => :logout
+  match 'account/forgotpassword' => 'account#forgotpassword', :as => :forgotpassword
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

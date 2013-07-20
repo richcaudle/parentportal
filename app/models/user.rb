@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
   validates :firstname, :presence => true
   validates :lastname, :presence => true
   validates :email, :presence => true, :uniqueness => true
-
   validates :password, :confirmation => true
+  validate  :password_must_be_present
+  validates_format_of :password, :with => /^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/i, :message => 'must be at least 8 characters and contain one number, one uppercase and one lowercase letter'
+  validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/, :message =>  'address is invalid'
 
   attr_accessor :password_confirmation
   attr_reader   :password
-
-  validate  :password_must_be_present
 
   def User.authenticate(email, password) 
   	puts 'I am here email: ' + password
@@ -40,6 +40,11 @@ class User < ActiveRecord::Base
 	def password_must_be_present
 		errors.add(:password, "Missing password") unless hashed_password.present?
 	end
+
+  def password_strength
+
+    errors.add(:password, "Missing password") unless hashed_password.present?
+  end
 
 	def generate_salt
 		self.salt = self.object_id.to_s + rand.to_s
