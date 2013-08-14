@@ -16,11 +16,14 @@
     <%= f.text_area :text %>
   </div>
   <% if @entry_type_id > 2 %>
+    <% if @entry.picture_file_name %>
+    <p>
+      <%= image_tag @entry.picture.url(:square) %>
+    </p>
+    <% end %>
     <div class="field">
-      <%= f.label :image %><br />
-      <%= f.file_field :image, :data => {
-        :max_file_size => 5.megabytes
-        } %>
+      <%= f.label :picture %><br />
+      <%= f.file_field :picture %>
     </div>
   <% end %>
   <div class="actions">

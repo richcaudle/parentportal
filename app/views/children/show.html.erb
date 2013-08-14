@@ -12,8 +12,8 @@
 <div class='well'>
 <div class='row'>
   <div class='span4'>
-    <% if @child.picture %>
-      <%= link_to 'Update photo...', profile_photo_url(:id => @child.id), {:style=> 'background-image: url(' + @child.picture + ')', :class => 'photo-placeholder'}  %>
+    <% if @child.picture_file_name %>
+      <%= link_to 'Update photo...', profile_photo_url(:id => @child.id), {:style=> 'background-image: url(' + @child.picture.url(:medium) + ')', :class => 'photo-placeholder'}  %>
     </a>
     <% else %>
      <%= link_to 'Add photo...', profile_photo_url(:id => @child.id), :class => 'photo-placeholder' %>
@@ -78,9 +78,7 @@
     <td><%= @entry_types.detect { |et| et.id == entry.entry_type_id }.name %></td>
     <td><%= entry.text %></td>
     <td><%= entry.created_at.strftime("%e %B %Y") %></td>
-    <!-- <td><%= entry.image %></td> -->
-    <td><%= link_to 'Show', child_entry_path(@child, entry) %>
-    | <%= link_to 'Edit', edit_child_entry_path(@child, entry) %>
+    <td><%= link_to 'Edit', edit_child_entry_path(@child, entry) %>
     | <%= link_to 'Delete', child_entry_path(@child, entry), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

@@ -10,10 +10,10 @@
 		    <% elsif entry.entry_type_id == 2 %>
 		    	<p><%= entry.text %></p>
 		    <% elsif entry.entry_type_id == 3 %>
-		    	<img src="<%= entry.image %>" />
+		    	<%= image_tag entry.picture.url(:medium) %>
 		    	<p><%= entry.text %></p>
 		    <% elsif entry.entry_type_id == 4 %>
-		    	<img src="<%= entry.image %>" />
+		    	<%= image_tag entry.picture.url(:medium) %>
 		    	<p><%= entry.text %></p>
 		    <% end %>
 		  </li>

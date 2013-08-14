@@ -1,11 +1,20 @@
 <h1>Set profile picture</h1>
-
-<%= form_tag({action: :profile_photo_action}, multipart: true) do %>
+<%= form_for(@child) do |f| %>
+	<% if @child.errors.any? %>
+    <div id="error_explanation">
+      	<h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
+      <ul>
+      <% @child.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  	<% end %>
 
 	<div class='row'>
 		<div class='span4'>
-			<% if @child.picture %>
-				<div class='photo-placeholder' style='background-image: url(<%= @child.picture %>)'></div>
+			<% if @child.picture_file_name %>
+				<div class='photo-placeholder' style='background-image: url(<%= @child.picture.url(:medium) %>)'></div>
 			<% else %>
 				<div class='photo-placeholder'></div>
 			<% end %>
@@ -19,17 +28,13 @@
 				</ul>
 			</div>
 
-			<% if(@error) %>
-		      <div class="alert alert-error"><strong>Upload failed: </strong><%= @error %></div>
-		    <% end %>
-			<div class="field">
-		    	Picture: <br/>
-		    	<%= file_field_tag 'picture' %>
-		  	</div>
-		  	<div class="actions">
-			    <input type='submit' value='Update' class='btn' />
-			    <%= link_to 'Cancel', @child, :class => 'btn' %>
-			</div>
+		    <div class="field">
+		      <%= f.label :picture %><br />
+		      <%= f.file_field :picture %>
+		    </div>
+			  <div class="actions">
+			    <%= f.submit(:class => 'btn btn-info') %>
+			  </div>
 		</div>
 	</div>
 

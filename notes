@@ -38,12 +38,13 @@ Children
 			+ Check not deleted, I can only access my own children
 				Need filter for all entries, child pages etc?
 			With goals progress
-		+ Entries
+		*+ Entries
 			*+ Add / delete / edit text entry
 			*+ Add / delete / edit observation entry
 			*+ Add / delete / edit text photo (with optional text)
 			*+ Add / delete / edit text entry entry (with optional caption)
-			+ Tighten up image upload process (see below)
+			*+ Tighten up image upload process (see below)
+			*+ Set image size limits / allowed formats
 		+ View journal
 			+ Online
 			Export as PDF?
@@ -54,6 +55,7 @@ Children
 	Tagging
 		Setup standard goals
 		Tag entries with goals
+		Allow tagging with multiple goals
 
 Integrations
 	+ Email
@@ -69,24 +71,5 @@ INSPIRATION
 Concept / features: https://www.expensify.com
 Design: pipelinedeals.com home page
 
-MODEL
-
-Role
-User has one or more roles
-A role grants access to a class
-Child has a class
-
-
-For now:
-	When a user registers, create them a class
-	Their children get added to this class
-	
-IMAGE / FILE UPLOAD
-
-https://devcenter.heroku.com/articles/paperclip-s3
-Validate
-	File extension
-	File size (pref before allow upload)
-Save to database?
 
 

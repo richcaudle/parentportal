@@ -51,18 +51,7 @@ class ChildrenController < ApplicationController
     @child = Child.find(params[:id])
     @classes = SchoolClass.my_classes(session[:user_id])
 
-    if params[:child][:picture] 
-      picture_path = Child.save_picture(@child.id, params[:child][:picture])
-      @child.picture = picture_path
-    else
-      @child.picture = nil
-    end
-
-    child_params = params[:child]
-    child_params.delete('picture')
-
-    
-    if @child.update_attributes(child_params)
+    if @child.update_attributes(params[:child])
       redirect_to @child, notice: 'Child was successfully updated.'
     else
       render action: "edit"
@@ -100,19 +89,7 @@ class ChildrenController < ApplicationController
     @child = Child.find(params[:child_id])
     error = nil
 
-    if params[:picture] 
-      if params[:picture].size > 2.megabytes
-        @error = "File must be less than 2MB" 
-      else
-        picture_path = Child.save_picture(@child.id, params[:picture])
-        @child.picture = picture_path  
-      end
-    else
-      @child.picture = nil
-    end
-
-    if !(@error)
-      @child.save
+    if @child.save
       redirect_to @child
     else
       render action: "profile_photo"

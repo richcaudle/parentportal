@@ -11,17 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730191107) do
+ActiveRecord::Schema.define(:version => 20130814194622) do
 
   create_table "children", :force => true do |t|
     t.integer  "class_id"
     t.string   "firstname"
     t.string   "lastname"
     t.datetime "dob"
-    t.string   "picture"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.boolean  "deleted"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "entries", :force => true do |t|
@@ -31,8 +34,12 @@ ActiveRecord::Schema.define(:version => 20130730191107) do
     t.string   "text"
     t.string   "image"
     t.boolean  "deleted"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "entry_types", :force => true do |t|
@@ -47,6 +54,12 @@ ActiveRecord::Schema.define(:version => 20130730191107) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "consumed"
+  end
+
+  create_table "learning_areas", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|

@@ -27,12 +27,6 @@
     <%= f.label :dob %><br />
     <%= f.date_select :dob %>
   </div>
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.file_field :picture, :data => {
-      :max_file_size => 5.megabytes
-      } %>
-  </div>
   <div class="actions">
     <%= f.submit(:class => 'btn btn-info') %>
   </div>

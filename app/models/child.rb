@@ -7,7 +7,15 @@ class Child < ActiveRecord::Base
   validates :lastname, :presence => true
   validates :dob, :presence => true
   validates :class_id, :presence => true
-  validates_format_of :picture, :with => /\.(jpeg|jpg|png)$/i, :allow_nil => true, :message => "Please choose a PNG or JPG file"
+
+  # This method associates the attribute ":avatar" with a file attachment
+  has_attached_file :picture, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '400x400>'
+  }
+  
+  validates_attachment :picture, :allow_nil => true, :content_type => { :content_type => ['image/jpeg', 'image/jpg', 'image/png'] }, :size => { :in => 0..2048.kilobytes }
   
   def self.can_access_child user_id, child_id
 
@@ -44,22 +52,4 @@ class Child < ActiveRecord::Base
 
   end
 
-  def self.save_picture child_id, picture
-    file_name = 'profile' + File.extname(picture.original_filename)
-    path = Rails.root.join('public', 'uploads', 'children', child_id.to_s, file_name)
-    dir = File.dirname(path)
-
-    unless File.directory?(dir)
-      FileUtils.mkdir_p(dir)
-    end
-
-    File.open(path, 'w') do |file|
-      file.syswrite(picture.read)
-    end
-
-    return "/uploads/children/#{child_id}/#{file_name}"
-
-  end
-
-  
 end

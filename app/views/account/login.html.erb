@@ -2,6 +2,7 @@
   <h1 class="box-title bg-orange fg-white">Log In</h1>
   <div class='well'>
 	<%= render 'login_form' %>
-	<p><%= link_to "Forgotten password?", forgotpassword_path %></p>
+	<p><%= link_to "Register?", :action => 'register' %><br/>
+		<%= link_to "Forgotten password?", forgotpassword_path %></p>
   </div>		
 </div>

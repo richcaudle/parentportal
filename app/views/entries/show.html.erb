@@ -13,11 +13,11 @@
   <%= @entry.text %>
 </p>
 
-<% if @entry.image %>
+<% if @entry.picture_file_name %>
 <p>
-  <img src='<%= @entry.image %>' />
+  <%= image_tag @entry.picture.url(:square) %>
 </p>
 <% end %>
 
 <%= link_to 'Edit', edit_child_entry_path(@entry) %> |
-<%= link_to 'Back', child_entries_path %>
+<%= link_to 'Back', child_path(:id => @child.id) %>

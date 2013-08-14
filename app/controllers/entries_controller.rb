@@ -38,28 +38,14 @@ class EntriesController < ApplicationController
     @entry = Entry.new(params[:entry])
     @entry.child_id = params[:child_id]
     @entry.deleted = false
-    @entry_types = EntryType.all
     @entry_type_id = Integer(params[:entry_type_id])
-    @child = Child.find(params[:child_id])
 
-    if params[:entry][:image] 
-      extension = Entry.temp_save_image(@child.id, params[:entry][:image])
-      @entry.image = params[:entry][:image].original_filename
-      params[:entry].delete('image')
-    else
-      @entry.image = nil
-    end
+    @child = Child.find(params[:child_id])
+    @entry_types = EntryType.all
 
     @entry.entry_type_id = @entry_type_id
 
     if @entry.save
-
-      if extension
-        @entry.image = Entry.temp_rename_image(@child.id, @entry.id, extension)
-        @entry.save
-      end
-
-      puts 'Here'
       redirect_to @child, notice: 'Entry was successfully added.'
     else
       render action: "new"
