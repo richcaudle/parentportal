@@ -15,5 +15,17 @@ super_user = User.create(firstname: 'Rich', lastname: 'Caudle', email: 'richard@
 	password: 'password')
 UserRole.create(user_id: super_user.id, school_id: -1, class_id: -1, child_id: -1, role_id: roles.first.id)
 
-# Create test school_id
-School.create(name: 'Leckhampton Primary')
+# Create entry types
+EntryType.create(name: 'Text')
+EntryType.create(name: 'Observation')
+EntryType.create(name: 'Photo')
+EntryType.create(name: 'Art')
+
+# Create learning areas
+learningArea.create(name: 'Personal, Social & Emotional Development' )
+learningArea.create(name: 'Physical Development' )
+learningArea.create(name: 'Communication & Language' )
+learningArea.create(name: 'Literacy' )
+learningArea.create(name: 'Mathematics' )
+learningArea.create(name: 'Understanding the World' )
+learningArea.create(name: 'Expressive Arts & Design' )

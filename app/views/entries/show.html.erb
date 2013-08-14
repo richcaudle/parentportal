@@ -1,0 +1,23 @@
+<p>
+  <b>Child:</b>
+  <%= @entry.child_id %>
+</p>
+
+<p>
+  <b>Entry type:</b>
+  <%= @entry.entry_type_id %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @entry.text %>
+</p>
+
+<% if @entry.image %>
+<p>
+  <img src='<%= @entry.image %>' />
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_child_entry_path(@entry) %> |
+<%= link_to 'Back', child_entries_path %>

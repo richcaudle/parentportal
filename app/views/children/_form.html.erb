@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :class_id %><br />
-    <%= f.number_field :class_id %>
+    <%= collection_select(:child, :class_id, @classes, :id, :name ) %>
   </div>
   <div class="field">
     <%= f.label :firstname %><br />
@@ -25,13 +25,15 @@
   </div>
   <div class="field">
     <%= f.label :dob %><br />
-    <%= f.datetime_select :dob %>
+    <%= f.date_select :dob %>
   </div>
   <div class="field">
     <%= f.label :picture %><br />
-    <%= f.text_field :picture %>
+    <%= f.file_field :picture, :data => {
+      :max_file_size => 5.megabytes
+      } %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(:class => 'btn btn-info') %>
   </div>
 <% end %>

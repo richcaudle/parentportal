@@ -11,7 +11,14 @@ Parentportal::Application.routes.draw do
   post "about/trial_action"
   get "about/features"
 
-  resources :children
+  resources :children do
+    resources :entries
+
+    match 'journal' => 'children#journal'
+    match 'profile_photo' => 'children#profile_photo'
+    match 'profile_photo_action' => 'children#profile_photo_action'
+  end
+  
   resources :school_classes
 
   get "home/index"
@@ -45,6 +52,9 @@ Parentportal::Application.routes.draw do
   match 'account/login' => 'account#login', :as => :login
   match 'account/logout' => 'account#logout', :as => :logout
   match 'account/forgotpassword' => 'account#forgotpassword', :as => :forgotpassword
+  match 'children/:id/journal' => 'account#forgotpassword', :as => :journal
+  match 'children/:id/profile_photo' => 'account#profile_photo', :as => :profile_photo
+  match 'children/:id/profile_photo_action', to: 'photos#profile_photo_action', via: [:post]
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

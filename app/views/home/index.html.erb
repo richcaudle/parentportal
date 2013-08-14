@@ -1,11 +1,20 @@
-<% if notice %>
-    <p id="notice"><%= notice %></p> 
-<% end %>
-<h1>Hi there!</h1>
 <% if is_logged_in %>
-	<p>Welcome back!</p>
+	<div class="hero-unit">
+	  <h1>Welcome</h1>
+	  <p>You're now logged in to <%= APP_NAME %>. From here you can create, update and manage your learning jounals.</p>
+	</div>
+	<h2>Inbox</h2>		
+	<div class='well'>
+		<p>If you email <%= APP_NAME %> but your email can't be processed, it will appear here.</p>
+	</div>
+	<h2>Children</h2>
+	<%= render "shared/child_list" %>
+
 <% else %>
-	<p>Welcome to parent portal.</p>
+	<div class="hero-unit">
+	  <h1>Welcome</h1>
+	  <p>Please register or log in to create, update and manage your learning jounals.</p>
+	</div>
 	<p><%= link_to "Log in", :controller => "account", :action => "login" %></p>
 	<p><%= link_to "Register", :controller => "account", :action => "register" %></p>
 <% end %>

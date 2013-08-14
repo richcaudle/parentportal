@@ -1,4 +1,3 @@
-
 Styling
 	*+ Bootstrap
 Account	
@@ -14,7 +13,7 @@ Account
 			*+ Register
 			*+ Login
 		*+ Enforce password length, email format
-	Organisation
+	Organisation / School
 		Register
 		Add / invite user
 		Remove user
@@ -29,18 +28,25 @@ Admin
 		Add
 		Delete
 		Update
-Pupils
-	+ View all
+Children
+	*+ View all
 		For each, summaries no. of entries and goal progress
-	+ Pupil
-		+ View one
+	*+ Pupil
+		*+ Create / Update
+			Check no child with same name
+		*+ View one
+			+ Check not deleted, I can only access my own children
+				Need filter for all entries, child pages etc?
 			With goals progress
-		View report
-	+ Entry types
-		+ Text
-		+ Photo (+ optional text)
-		+ Observation (different to text)
-		+ 'Art'
+		+ Entries
+			*+ Add / delete / edit text entry
+			*+ Add / delete / edit observation entry
+			*+ Add / delete / edit text photo (with optional text)
+			*+ Add / delete / edit text entry entry (with optional caption)
+			+ Tighten up image upload process (see below)
+		+ View journal
+			+ Online
+			Export as PDF?
 	Class / group
 		Create
 		Add pupil
@@ -62,3 +68,25 @@ INSPIRATION
 
 Concept / features: https://www.expensify.com
 Design: pipelinedeals.com home page
+
+MODEL
+
+Role
+User has one or more roles
+A role grants access to a class
+Child has a class
+
+
+For now:
+	When a user registers, create them a class
+	Their children get added to this class
+	
+IMAGE / FILE UPLOAD
+
+https://devcenter.heroku.com/articles/paperclip-s3
+Validate
+	File extension
+	File size (pref before allow upload)
+Save to database?
+
+

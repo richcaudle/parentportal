@@ -1,30 +1,87 @@
-<p id="notice"><%= notice %></p>
+<div class='title-and-actions'>
+  <h1><%= @child.firstname %> <%= @child.lastname %>
+    <small><%= @class.name %></small
+  </h1>
+<div class='top-right'>
+    <%= link_to 'Edit', edit_child_path(@child), :class => 'btn btn-info' %> 
+    <%= link_to 'Journal', journal_url(:id => @child.id), :class => 'btn btn-info' %>
+    <%= link_to 'Delete', @child, method: :delete, :class => 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
 
-<p>
-  <b>Class:</b>
-  <%= @child.class_id %>
-</p>
+<div class='well'>
+<div class='row'>
+  <div class='span4'>
+    <% if @child.picture %>
+      <%= link_to 'Update photo...', profile_photo_url(:id => @child.id), {:style=> 'background-image: url(' + @child.picture + ')', :class => 'photo-placeholder'}  %>
+    </a>
+    <% else %>
+     <%= link_to 'Add photo...', profile_photo_url(:id => @child.id), :class => 'photo-placeholder' %>
+    <% end %>
+  </div>
+  <div class='span3'>
+    <h4>Primary Goals</h4>
+    <table class='table'>
+      <tr>
+        <td>Goal 1</td>
+        <td><span class='progress' style='width: 40%'>40%</span></td>
+      </tr>
+      <tr>
+        <td>Goal 2</td>
+        <td><span class='progress' style='width: 20%'>20%</span></td>
+      </tr>
+      <tr>
+        <td>Goal 3</td>
+        <td><span class='progress' style='width: 70%'>70%</span></td>
+      </tr>
+    </table>  
+  </div>  
+  <div class='span3'>
+    <h4>Secondary Goals</h4>
+    <table class='table'>
+      <tr>
+        <td>Goal 1</td>
+        <td><span class='progress' style='width: 40%'>40%</span></td>
+      </tr>
+      <tr>
+        <td>Goal 2</td>
+        <td><span class='progress' style='width: 20%'>20%</span></td>
+      </tr>
+      <tr>
+        <td>Goal 3</td>
+        <td><span class='progress' style='width: 70%'>70%</span></td>
+      </tr>
+    </table>  
+  </div>  
+</div>
+</div>
+<hr/>
+<div class='title-and-actions'>
+  <h3>Latest Journal Entries</h3>
+  <div class='top-right'>
+    <%= link_to '+ Text', new_child_entry_path(@child, :entry_type_id => '1'), :class => 'btn btn-info' %>
+    <%= link_to '+ Observation', new_child_entry_path(@child, :entry_type_id => '2'), :class => 'btn btn-info' %>
+    <%= link_to '+ Photo', new_child_entry_path(@child, :entry_type_id => '3'), :class => 'btn btn-info' %>
+    <%= link_to '+ Art', new_child_entry_path(@child, :entry_type_id => '4'), :class => 'btn btn-info' %>
+  </div>
+</div>
 
-<p>
-  <b>Firstname:</b>
-  <%= @child.firstname %>
-</p>
-
-<p>
-  <b>Lastname:</b>
-  <%= @child.lastname %>
-</p>
-
-<p>
-  <b>Dob:</b>
-  <%= @child.dob %>
-</p>
-
-<p>
-  <b>Picture:</b>
-  <%= @child.picture %>
-</p>
-
-
-<%= link_to 'Edit', edit_child_path(@child) %> |
-<%= link_to 'Back', children_path %>
+<table class="table">
+  <tr>
+    <th>Entry type</th>
+    <th>Text</th>
+    <th>Added</th>
+    <th></th>
+  </tr>
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= @entry_types.detect { |et| et.id == entry.entry_type_id }.name %></td>
+    <td><%= entry.text %></td>
+    <td><%= entry.created_at.strftime("%e %B %Y") %></td>
+    <!-- <td><%= entry.image %></td> -->
+    <td><%= link_to 'Show', child_entry_path(@child, entry) %>
+    | <%= link_to 'Edit', edit_child_entry_path(@child, entry) %>
+    | <%= link_to 'Delete', child_entry_path(@child, entry), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

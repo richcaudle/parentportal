@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  child_id: 1
+  entry_type_id: 1
+  order: 1
+  text: MyString
+  image: MyString
+  deleted: false
+
+two:
+  child_id: 1
+  entry_type_id: 1
+  order: 1
+  text: MyString
+  image: MyString
+  deleted: false

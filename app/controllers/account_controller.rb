@@ -13,6 +13,31 @@ class AccountController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
+
+      # Create a school for this user
+      school = School.new
+      school.name = @user.firstname + "'s School"
+      school.save
+
+      # Create a class for this user
+      user_class = SchoolClass.new
+      user_class.name = @user.firstname + "'s Class"
+      user_class.school_id = school.id
+      user_class.save
+
+      # Create a role for them to access this class
+      user_role = UserRole.new
+      user_role.user_id = @user.id
+      user_role.school_id = school.id
+      user_role.class_id = user_class.id
+      user_role.child_id = -1
+      user_role.role_id = Role.find_by_name!('Teacher').id
+      user_role.save
+
+      # log user in
+      User.authenticate(@user.email, @user.password)
+      session[:user_id] = @user.id
+
       redirect_to home_url, notice: 'Registration successful'
     else
       render action: "register"
@@ -35,7 +60,7 @@ class AccountController < ApplicationController
 
   def logout
 	   session[:user_id] = nil
-	   redirect_to home_url, :notice => "Logged out"
+	   redirect_to :controller => 'about', :action => 'index'
   end
 
   # GET /account/updatepassword

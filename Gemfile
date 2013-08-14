@@ -29,6 +29,8 @@ end
 gem 'jquery-rails'
 gem 'bootstrap-sass', "~> 2.3.1.0"
 gem 'sendgrid'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -43,4 +45,4 @@ gem 'sendgrid'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'

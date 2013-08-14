@@ -1,4 +1,4 @@
-<%= link_to APP_NAME, root_path, :class => 'brand' %>
+<%= link_to APP_NAME, home_path, :class => 'brand' %>
 <ul class="nav">
   <% if is_logged_in %>
     <% if is_superuser %>
@@ -7,13 +7,14 @@
       <li><%= link_to "Users", admin_users_path %></li>
     <% else %>
       <!-- Admin navigation -->
-      <li><%= link_to "Classes", :controller => "school_classes", :action => "index" %></li>
-      <li><%= link_to "Children", :controller => "children", :action => "index" %></li>
+      <!-- <li><%= link_to "Classes", :controller => "school_classes", :action => "index" %></li> -->
+      <li><%= link_to "My Children", :controller => "children", :action => "index" %></li>
     <% end %>
   <% end %>
 </ul>
 <ul class='nav pull-right'>
   <% if is_logged_in %>
+    <li><%= link_to "Update Password", :controller => "account", :action => "updatepassword" %></li>
     <li><%= link_to "Log out", logout_path %></li>
   <% else %>
     <li><%= link_to "Log in", login_path %></li>

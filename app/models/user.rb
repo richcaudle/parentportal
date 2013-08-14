@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
   def User.authenticate(email, password) 
   	puts 'I am here email: ' + password
   	if user = find_by_email(email)
-		if user.hashed_password == encrypt_password(password, user.salt) 
-			user
-		end 
-	end
+  		if user.hashed_password == encrypt_password(password, user.salt) 
+  			user
+  		end 
+  	end
   end
 
   def User.encrypt_password(password, salt) 
@@ -28,11 +28,11 @@ class User < ActiveRecord::Base
   end
 
   def password=(password)
-	@password = password
-	if password.present?
-		generate_salt
-		self.hashed_password = self.class.encrypt_password(password, salt)
-	end 
+  	@password = password
+  	if password.present?
+  		generate_salt
+  		self.hashed_password = self.class.encrypt_password(password, salt)
+  	end 
   end
 
   private

@@ -1,0 +1,36 @@
+<h1>Set profile picture</h1>
+
+<%= form_tag({action: :profile_photo_action}, multipart: true) do %>
+
+	<div class='row'>
+		<div class='span4'>
+			<% if @child.picture %>
+				<div class='photo-placeholder' style='background-image: url(<%= @child.picture %>)'></div>
+			<% else %>
+				<div class='photo-placeholder'></div>
+			<% end %>
+		</div>
+		<div class='span4'>
+			<div class='well'>
+				<p>Upload a photo for <%= @child.firstname %>. Please make sure it:</p>
+				<ul>
+					<li>Is a JPEG or PNG file</li>
+					<li>Is is less than 2 Mb</li>
+				</ul>
+			</div>
+
+			<% if(@error) %>
+		      <div class="alert alert-error"><strong>Upload failed: </strong><%= @error %></div>
+		    <% end %>
+			<div class="field">
+		    	Picture: <br/>
+		    	<%= file_field_tag 'picture' %>
+		  	</div>
+		  	<div class="actions">
+			    <input type='submit' value='Update' class='btn' />
+			    <%= link_to 'Cancel', @child, :class => 'btn' %>
+			</div>
+		</div>
+	</div>
+
+<% end %>

@@ -1,31 +1,7 @@
-<h1>Listing children</h1>
+<div class='title-and-actions'>
+	<h1>My children</h1>
+	<div class='top-right'><%= link_to 'Add Child', new_child_path, :class => 'btn btn-info' %></div>
+</div>
+<%= render "shared/child_list" %>
 
-<table>
-  <tr>
-    <th>Class</th>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Dob</th>
-    <th>Picture</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @children.each do |child| %>
-  <tr>
-    <td><%= child.class_id %></td>
-    <td><%= child.firstname %></td>
-    <td><%= child.lastname %></td>
-    <td><%= child.dob %></td>
-    <td><%= child.picture %></td>
-    <td><%= link_to 'Show', child %></td>
-    <td><%= link_to 'Edit', edit_child_path(child) %></td>
-    <td><%= link_to 'Destroy', child, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Child', new_child_path %>

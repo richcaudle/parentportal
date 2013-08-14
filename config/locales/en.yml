@@ -12,3 +12,11 @@ en:
       user:
         create: "Register"
         update: "Update"
+    submit:
+      child:
+        create: "Add"
+        update: "Update"
+    submit:
+      entry:
+        create: "Add"
+        update: "Update"

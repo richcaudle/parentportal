@@ -57,3 +57,55 @@ label, input[type="text"], textarea, input[type="password"]
   font-size: 1.4em;
   width: 97%;
 }
+
+.photo-placeholder
+{
+  background: #efefef;
+  display: block;
+  width: 9em;
+  height: 9em;
+  border: solid 1px #999;
+  font-size: 2em;
+  margin: 1em 0;
+  border-radius: 1em;
+  line-height: 9em;
+  text-align: center;
+}
+
+a.filled
+{
+  color: #fff !important;
+}
+
+.photo-placeholder img
+{
+  width: 9em;
+  height: 9em;
+  border-radius: 1em;
+  margin: 0;
+}
+
+.photo-placeholder:hover
+{
+  background: #efefef;
+  color: ##0088cc;
+}
+
+.table img
+{
+  width: 100px;
+  height: 100px;
+}
+
+.title-and-actions
+{
+  position: relative;
+  margin-bottom: 3em;
+}
+
+.top-right
+{
+  top: 0;
+  right: 0;
+  position: absolute;
+}

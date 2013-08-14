@@ -1,0 +1,107 @@
+.journal *{
+  margin:0;
+  padding:0;
+}
+.journal h3, .journal p{
+  font-size:100%;
+  font-weight:normal;
+}
+.journal ul li h3 {
+  font-size:140%;
+  font-weight:bold;
+  padding-bottom:10px;
+}
+.journal ul,.journal li{
+  list-style:none;
+}
+.journal ul{
+  overflow:hidden;
+}
+.journal ul li {
+  color:#000;
+  display:block;
+  padding: 1em;
+  margin: 2em;
+  float:left;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  position: relative;
+}
+
+.journal ul li p{
+  font-family:"Reenie Beanie",arial,sans-serif;
+  font-size:140%;
+  margin: 0.5em 0;
+}
+
+.journal ul li.entry-type-1
+{
+  width:14em;
+  background: none;
+  background-image: url(lined-paper.png);
+}
+
+.journal ul li.entry-type-2
+{
+  width:18em;
+  background:#ffc;
+}
+
+.journal ul li.entry-type-3
+{
+  height:24em;
+  width:28em;
+  border: solid 1px #666;
+}
+
+.journal ul li.entry-type-3 h4
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.journal ul li.entry-type-4
+{
+  width:60em;
+  padding: 0;
+}
+
+.journal ul li.entry-type-4 h4
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.journal ul li {
+  -webkit-transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+  -moz-transform:rotate(-4deg);
+}
+.journal ul li:nth-child(even) {
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(3deg);
+  -moz-transform:rotate(3deg);
+  position:relative;
+  top:5px;
+}
+.journal ul li:nth-child(3n) {
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+}
+.journal ul li:nth-child(5n) {
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}

@@ -1,0 +1,22 @@
+<h1><%= @child.firstname %>'s Journal</h1>
+<div class='journal'>
+	<ul>
+		<% @entries.each do |entry| %>
+		  <li class='entry-type-<%= entry.entry_type_id %>'>
+		  	<h4><small><%= entry.created_at.strftime("%e %B %Y") %></small>
+		  	</h4>
+		  	<% if entry.entry_type_id == 1 %>
+		    	<p><%= entry.text %></p>
+		    <% elsif entry.entry_type_id == 2 %>
+		    	<p><%= entry.text %></p>
+		    <% elsif entry.entry_type_id == 3 %>
+		    	<img src="<%= entry.image %>" />
+		    	<p><%= entry.text %></p>
+		    <% elsif entry.entry_type_id == 4 %>
+		    	<img src="<%= entry.image %>" />
+		    	<p><%= entry.text %></p>
+		    <% end %>
+		  </li>
+		<% end %>
+	</ul>
+</div>

@@ -1,0 +1,33 @@
+<h1>Listing entries</h1>
+
+<table class="table">
+  <tr>
+    <th>Child</th>
+    <th>Entry type</th>
+    <th>Order</th>
+    <th>Text</th>
+    <th>Image</th>
+    <th>Deleted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.child_id %></td>
+    <td><%= entry.entry_type_id %></td>
+    <td><%= entry.order %></td>
+    <td><%= entry.text %></td>
+    <td><%= entry.image %></td>
+    <td><%= entry.deleted %></td>
+    <td><%= link_to 'Show', child_entry_path(@child, entry) %></td>
+    <td><%= link_to 'Edit', edit_child_entry_path(@child, entry) %></td>
+    <td><%= link_to 'Delete', child_entry_path(@child, entry), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entry', new_child_entry_path %>

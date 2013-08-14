@@ -1,83 +1,123 @@
 class ChildrenController < ApplicationController
-  # GET /children
-  # GET /children.json
-  def index
-    @children = Child.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @children }
-    end
+  # GET /children  
+  def index
+    @children = Child.my_children(session[:user_id])
   end
 
   # GET /children/1
-  # GET /children/1.json
   def show
-    @child = Child.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @child }
+    if Child.can_access_child(session[:user_id], params[:id])
+      
+      @entries = Entry.where(:child_id => params[:id]).where(:deleted => false).order("created_at DESC")
+      @child = Child.find(params[:id])
+      @entry_types = EntryType.all
+      @class = SchoolClass.find(@child.class_id)
+
+    else
+      redirect_to home_url, notice: 'You do not have permission to access that page'
     end
+    
   end
 
   # GET /children/new
-  # GET /children/new.json
   def new
     @child = Child.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @child }
-    end
+    @classes = SchoolClass.my_classes(session[:user_id])
   end
 
   # GET /children/1/edit
   def edit
+    @classes = SchoolClass.my_classes(session[:user_id])
     @child = Child.find(params[:id])
   end
 
   # POST /children
-  # POST /children.json
   def create
     @child = Child.new(params[:child])
+    @classes = SchoolClass.my_classes(session[:user_id])
+    @child.deleted = false
 
-    respond_to do |format|
-      if @child.save
-        format.html { redirect_to @child, notice: 'Child was successfully created.' }
-        format.json { render json: @child, status: :created, location: @child }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @child.errors, status: :unprocessable_entity }
-      end
+    if @child.save
+      redirect_to @child, notice: 'Child was successfully created.'
+    else
+      render action: "new"
     end
   end
 
   # PUT /children/1
-  # PUT /children/1.json
   def update
     @child = Child.find(params[:id])
+    @classes = SchoolClass.my_classes(session[:user_id])
 
-    respond_to do |format|
-      if @child.update_attributes(params[:child])
-        format.html { redirect_to @child, notice: 'Child was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @child.errors, status: :unprocessable_entity }
-      end
+    if params[:child][:picture] 
+      picture_path = Child.save_picture(@child.id, params[:child][:picture])
+      @child.picture = picture_path
+    else
+      @child.picture = nil
     end
+
+    child_params = params[:child]
+    child_params.delete('picture')
+
+    
+    if @child.update_attributes(child_params)
+      redirect_to @child, notice: 'Child was successfully updated.'
+    else
+      render action: "edit"
+    end
+    
   end
 
   # DELETE /children/1
-  # DELETE /children/1.json
   def destroy
     @child = Child.find(params[:id])
-    @child.destroy
+    @child.deleted = true
+    @child.save
 
-    respond_to do |format|
-      format.html { redirect_to children_url }
-      format.json { head :no_content }
-    end
+    redirect_to children_url
   end
+
+  # GET /children/1/journal
+  def journal
+
+    if Child.can_access_child(session[:user_id], params[:child_id])
+      @entries = Entry.where(:child_id => params[:child_id]).where(:deleted => false).order("created_at DESC")
+      @child = Child.find(params[:child_id])
+      @entry_types = EntryType.all
+    else
+      redirect_to home_url, notice: 'You do not have permission to access that page'
+    end
+    
+  end
+
+  def profile_photo
+    @child = Child.find(params[:child_id])
+  end
+
+  def profile_photo_action
+    @child = Child.find(params[:child_id])
+    error = nil
+
+    if params[:picture] 
+      if params[:picture].size > 2.megabytes
+        @error = "File must be less than 2MB" 
+      else
+        picture_path = Child.save_picture(@child.id, params[:picture])
+        @child.picture = picture_path  
+      end
+    else
+      @child.picture = nil
+    end
+
+    if !(@error)
+      @child.save
+      redirect_to @child
+    else
+      render action: "profile_photo"
+    end
+    
+  end
+
 end

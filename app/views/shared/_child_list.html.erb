@@ -1,0 +1,21 @@
+<table class='table'>
+  <tr>
+  	<th></th>
+    <th>Name</th>
+    <th>Date of Birth</th>
+  </tr>
+
+<% @children.each do |child| %>
+  <tr>
+  	<td>
+  		<% if child.picture %>
+  			<img src='<%= child.picture %>' />
+  		<% else %>
+  			<img data-src="holder.js/100x100" alt="">
+  		<% end %>
+  	</td>
+    <td><%= link_to child.firstname + ' ' + child.lastname, child %></td>
+    <td><%= child.dob.strftime("%e %B %Y") %></td>
+  </tr>
+<% end %>
+</table>

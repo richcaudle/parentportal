@@ -78,6 +78,22 @@ footer {
     color: #0088cc;
 }
 
+a.btn-info, a.btn-info:visited, a.btn-warning, a.btn-warning:visited, , a.btn-danger, a.btn-danger:visited
+{
+    color: #fff;
+}
+
+
+.hero-unit h1
+{
+    margin-bottom: 10px;
+}
+
+.hero-unit p
+{
+  font-size: 18px;
+  line-height: 24px;
+}
 
 @import "bootstrap-responsive";
 
