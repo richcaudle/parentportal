@@ -26,6 +26,12 @@
       <%= f.file_field :picture %>
     </div>
   <% end %>
+  <h3>Learning Areas</h3>
+  <ul class='checkboxes'>
+    <% @areas.each do |area| %>
+      <li><%= check_box_tag "entry[areas][#{area.id}]", '', (@entry.entry_learning_areas.exists?(:learning_area_id => area.id)) %><%= area.name %></li>
+    <% end %>
+  </ul>
   <div class="actions">
     <%= f.submit(:class => 'btn btn-info') %>
   </div>

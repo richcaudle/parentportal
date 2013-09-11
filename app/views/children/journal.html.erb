@@ -16,6 +16,12 @@
 		    	<%= image_tag entry.picture.url(:medium) %>
 		    	<p><%= entry.text %></p>
 		    <% end %>
+
+		    <ul>
+			    <% entry.learning_areas.each do |area| %>
+			    	<li><%= @areas.select {|a| a.id == area.id}.first.name %></li>
+			    <% end %>
+			</ul>
 		  </li>
 		<% end %>
 	</ul>

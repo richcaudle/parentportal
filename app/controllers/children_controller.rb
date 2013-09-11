@@ -14,6 +14,7 @@ class ChildrenController < ApplicationController
       @child = Child.find(params[:id])
       @entry_types = EntryType.all
       @class = SchoolClass.find(@child.class_id)
+      @areas = LearningArea.all
 
     else
       redirect_to home_url, notice: 'You do not have permission to access that page'
@@ -75,6 +76,7 @@ class ChildrenController < ApplicationController
       @entries = Entry.where(:child_id => params[:child_id]).where(:deleted => false).order("created_at DESC")
       @child = Child.find(params[:child_id])
       @entry_types = EntryType.all
+      @areas = LearningArea.all
     else
       redirect_to home_url, notice: 'You do not have permission to access that page'
     end

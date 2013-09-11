@@ -45,17 +45,17 @@ Children
 			*+ Add / delete / edit text entry entry (with optional caption)
 			*+ Tighten up image upload process (see below)
 			*+ Set image size limits / allowed formats
-		+ View journal
-			+ Online
-			Export as PDF?
+			Allow entries to apply to multiple children
+		*+ View journal
+			*+ Online
 	Class / group
 		Create
 		Add pupil
 		Remove pupil
-	Tagging
-		Setup standard goals
-		Tag entries with goals
-		Allow tagging with multiple goals
+	*+ Tagging
+		*+ Setup standard goals
+		*+ Tag entries with goals
+		*+ Allow tagging with multiple goals
 
 Integrations
 	+ Email
@@ -70,6 +70,20 @@ INSPIRATION
 
 Concept / features: https://www.expensify.com
 Design: pipelinedeals.com home page
+Mailchimp design
 
+COSTS
+
+Register domain for one year: £2.95
+Email (inbound / outbound): £0
+Hosting (site / database): £0
+Theme?
+
+
+- Can I go on your mailling list for 1/2 bed properties in Jericho?
+- What refs / docs do I need?
+	Landlord agency
+	
+- What would happen if I wanted to share with a pro?
 
 

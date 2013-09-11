@@ -22,6 +22,7 @@ class EntriesController < ApplicationController
     @child = Child.find(params[:child_id])
     @entry_types = EntryType.all
     @entry_type_id = Integer(params[:entry_type_id])
+    @areas = LearningArea.all
   end
 
   # GET /entries/1/edit
@@ -30,11 +31,15 @@ class EntriesController < ApplicationController
     @child = Child.find(params[:child_id])
     @entry_types = EntryType.all
     @entry_type_id = @entry.entry_type_id
+    @areas = LearningArea.all
   end
 
   # POST /entries
   def create
     
+    area_params = params[:entry][:areas].clone
+    params[:entry].delete("areas")
+
     @entry = Entry.new(params[:entry])
     @entry.child_id = params[:child_id]
     @entry.deleted = false
@@ -42,10 +47,12 @@ class EntriesController < ApplicationController
 
     @child = Child.find(params[:child_id])
     @entry_types = EntryType.all
+    @areas = LearningArea.all
 
     @entry.entry_type_id = @entry_type_id
-
+    
     if @entry.save
+      process_areas @areas, @entry, area_params
       redirect_to @child, notice: 'Entry was successfully added.'
     else
       render action: "new"
@@ -57,6 +64,7 @@ class EntriesController < ApplicationController
   def update
     @entry = Entry.find(params[:id])
     @entry_types = EntryType.all
+    @areas = LearningArea.all
     @child = Child.find(params[:child_id])
     @entry_type_id = Integer(params[:entry_type_id])
 
@@ -67,6 +75,9 @@ class EntriesController < ApplicationController
     else
       @entry.image = nil
     end
+
+    process_areas @areas, @entry, params[:entry][:areas]
+    params[:entry].delete('areas')
 
     if @entry.update_attributes(params[:entry])
       redirect_to @child, notice: 'Entry was successfully updated.'
@@ -86,5 +97,21 @@ class EntriesController < ApplicationController
 
     redirect_to @child, notice: 'Entry was successfully deleted.'
   end
+
+  private
+
+    def process_areas(areas, entry, params)
+      
+      if entry.learning_areas.length > 0
+        entry.learning_areas.destroy_all
+      end
+
+      areas.each do |area|
+        if params["#{area.id}"]
+          entry.entry_learning_areas.create(learning_area: area)
+        end
+      end
+
+    end
 
 end

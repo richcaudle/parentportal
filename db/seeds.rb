@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 # Add roles
 roles = Role.create([{ name: 'Super'}, { name: 'Admin'}, { name: 'Teacher'},
 	{ name: 'Parent'}])
@@ -22,10 +14,10 @@ EntryType.create(name: 'Photo')
 EntryType.create(name: 'Art')
 
 # Create learning areas
-# LearningArea.create(name: 'Personal, Social & Emotional Development' )
-# LearningArea.create(name: 'Physical Development' )
-# LearningArea.create(name: 'Communication & Language' )
-# LearningArea.create(name: 'Literacy' )
-# LearningArea.create(name: 'Mathematics' )
-# LearningArea.create(name: 'Understanding the World' )
-# LearningArea.create(name: 'Expressive Arts & Design' )
+LearningArea.create(name: 'Personal, Social & Emotional Development' )
+LearningArea.create(name: 'Physical Development' )
+LearningArea.create(name: 'Communication & Language' )
+LearningArea.create(name: 'Literacy' )
+LearningArea.create(name: 'Mathematics' )
+LearningArea.create(name: 'Understanding the World' )
+LearningArea.create(name: 'Expressive Arts & Design' )

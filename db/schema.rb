@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814194622) do
+ActiveRecord::Schema.define(:version => 20130818143030) do
 
   create_table "children", :force => true do |t|
     t.integer  "class_id"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(:version => 20130814194622) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+  end
+
+  create_table "entry_learning_areas", :force => true do |t|
+    t.integer  "entry_id"
+    t.integer  "learning_area_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "entry_types", :force => true do |t|
