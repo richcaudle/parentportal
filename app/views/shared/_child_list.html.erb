@@ -1,11 +1,5 @@
-<table class='table'>
-  <tr>
-  	<th></th>
-    <th>Name</th>
-    <th>Date of Birth</th>
-  </tr>
-
-<% @children.each do |child| %>
+<table class='table child-list'>
+  <% @children.each do |child| %>
   <tr>
   	<td>
   		<% if child.picture %>
@@ -14,8 +8,19 @@
   			<img data-src="holder.js/100x100" alt="">
   		<% end %>
   	</td>
-    <td><%= link_to child.firstname + ' ' + child.lastname, child %></td>
-    <td><%= child.dob.strftime("%e %B %Y") %></td>
+    <td>
+      <h3><%= link_to child.firstname + ' ' + child.lastname, child %></h3>
+      <p>Date of birth: <%= child.dob.strftime("%e %B %Y") %></p>
+      <p>Last entry: TODO</p>
+    </td>
+    <td>TODO: Goals progress</td>
+    <td>
+      <ul>
+        <li><%= link_to 'View', child, :class => 'button' %></li>
+        <li><%= link_to 'Journal', journal_url(:id => child.id), :class => 'button' %></li>
+        <li><%= link_to 'Edit', edit_child_path(child), :class => 'button' %></li>
+      </ul
+    </td>
   </tr>
 <% end %>
 </table>

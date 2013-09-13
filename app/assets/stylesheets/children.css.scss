@@ -4,7 +4,38 @@
 
 .progress
 {
-	background: red;
+	background: #ff7c0d;
 	color: #fff;
 	display: inline-block;
+	margin: 0;
+	padding: 4px;
 }
+
+.goal-summary
+{
+	width: 100%;
+}
+
+.goal-summary td
+{
+	font-size: 1.1em;
+	padding: 4px;
+}
+
+.goal-icon
+{
+	background-color: #aaa;
+	padding: 5px;
+	border-radius: 6px;
+}
+
+.goal-summary td:nth-child(1)
+{
+	width: 10%;
+}
+
+.goal-summary td:nth-child(2)
+{
+	width: 90%;
+}
+

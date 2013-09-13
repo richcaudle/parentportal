@@ -10,11 +10,16 @@ module ChildrenHelper
 		puts area_counts.to_yaml
 		puts max_count.to_yaml
 
-		content_tag(:table, class: "table") do
+		content_tag(:table, class: "goal-summary") do
 
 			areas.collect do |area|
 				content_tag(:tr) do
-					content_tag(:td, area.name) +
+					content_tag(:td) do
+						content_tag(:a, href: "#", tooltip: area.name) do
+							tag(:img, src: '/assets/social-icon.png', class: 'goal-icon')
+						end
+					end +
+					
 
 					content_tag(:td) do
 						content_tag(:span, area_counts[area.id], class: "progress", style: "width: #{area_counts[area.id].to_f / max_count * 100}%")

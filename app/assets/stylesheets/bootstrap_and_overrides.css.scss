@@ -36,9 +36,10 @@ nav li a
   color: white;
 }
 
-h1
+h1, h2, h3, h4, h5
 {
   font-weight: normal;
+  color: #666;
 }
 
 
@@ -73,9 +74,16 @@ footer {
     margin: 20px 0;
 }
 
-.content a, .content a:visited
+.content a, .content a:visited, .content a:hover
 {
     color: #0088cc;
+    background-color: transparent;
+}
+
+.pagecontent a, .pagecontent a:visited, .pagecontent a:hover
+{
+    color: #ff7c0d;
+    background-color: transparent;
 }
 
 a.btn-info, a.btn-info:visited, a.btn-warning, a.btn-warning:visited, , a.btn-danger, a.btn-danger:visited
@@ -83,10 +91,20 @@ a.btn-info, a.btn-info:visited, a.btn-warning, a.btn-warning:visited, , a.btn-da
     color: #fff;
 }
 
+ul li
+{
+  list-style-type: none;
+}
+
+
+.hero-unit
+{
+  padding: 40px;
+}
 
 .hero-unit h1
 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .hero-unit p

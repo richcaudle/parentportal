@@ -37,6 +37,7 @@ class AccountController < ApplicationController
       # log user in
       User.authenticate(@user.email, @user.password)
       session[:user_id] = @user.id
+      session[:user_firstname] = @user.firstname
 
       redirect_to home_url, notice: 'Registration successful'
     else
@@ -52,6 +53,7 @@ class AccountController < ApplicationController
   def login_action
   	 if user = User.authenticate(params[:user][:email], params[:user][:password])
         session[:user_id] = user.id
+        session[:user_firstname] = user.firstname
         redirect_to home_url, :notice => "Successful login"
 	   else
 		    redirect_to login_url, :notice => "Invalid user & password combination"

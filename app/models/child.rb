@@ -13,7 +13,7 @@ class Child < ActiveRecord::Base
     thumb: '100x100>',
     square: '200x200#',
     medium: '400x400>'
-  }
+  }, :default_url => "/assets/missing-profile-image.jpg"
   
   validates_attachment :picture, :allow_nil => true, :content_type => { :content_type => ['image/jpeg', 'image/jpg', 'image/png'] }, :size => { :in => 0..2048.kilobytes }
   

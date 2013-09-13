@@ -109,3 +109,165 @@ a.filled
   right: 0;
   position: absolute;
 }
+
+/* New design */
+
+.sidebar
+{
+  width: 16em;
+  padding: 0;
+  float: left;
+}
+
+.logo
+{
+  width: 100%;
+  float: left;
+}
+
+.sidenav
+{
+  background-color: #eee;
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: 100%;
+}
+
+.sidenav li
+{
+  list-style-type: none;
+  font-size: 1.4em;
+  padding: 0.3em 0.3em 0.3em 1.2em;
+  margin: 1.2em 0;
+}
+
+.sidenav li a
+{
+  list-style-type: none;
+  color: #888;
+}
+
+.sidenav li a:hover
+{
+  color: #333;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.label-heading
+{
+  color: #333;
+}
+
+.pagecontent
+{
+  padding: 2em 1em;
+}
+
+.table.child-list p
+{
+  font-size: 1.2em;
+  color: #999;
+}
+
+.table.child-list td
+{
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+.child-list img
+{
+  border-radius: 6em;
+  width: 130px;
+  height: 130px;
+}
+
+.child-list td:nth-child(1) {
+  width: 150px;
+}
+
+.child-list td:nth-child(3) {
+  width: 150px;
+}
+
+.child-list td:nth-child(4) {
+  width: 150px;
+}
+
+.child-list ul li
+{
+  margin-bottom: 0.6em;
+}
+
+.child-list ul a
+{
+  width: 80%;
+}
+
+.pagecontent a.button, .pagecontent a.button:visited
+{
+  font-size: 15px;
+  color: white;
+  display: inline-block;
+  background-color: #999;
+  border-radius: 0.3em;
+  padding: 0.6em;
+  text-align: center;
+}
+
+.pagecontent a.button:hover
+{
+  color: white;
+  text-decoration: none;
+  background-color: #ff7c0d;
+}
+
+
+.pagecontent a.button-danger
+{
+  background-color: #ddd !important;
+}
+
+.pagecontent a.button-danger:hover
+{
+  background-color: #ff7c0d !important;
+}
+
+a[tooltip]:link, a[tooltip]:visited {
+  position: relative;
+  text-decoration: none;
+  border-bottom: solid 1px;
+}
+
+a[tooltip]:before {
+  content: "";
+  position: absolute;
+  border-top: 20px solid #0090ff;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  visibility: hidden;
+  top: -18px;
+  left: -26px;
+}
+
+a[tooltip]:after {
+  content: attr(tooltip);
+  position: absolute;
+  color: white;
+  top: -35px;
+  left: -26px;
+  background: #0090ff;
+  padding: 5px 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  visibility: hidden;
+}
+
+a[tooltip]:hover:before, a[tooltip]:hover:after {
+  visibility: visible;
+  -moz-transition: visibility 0s linear .3s;
+}

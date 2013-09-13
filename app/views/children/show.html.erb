@@ -1,15 +1,13 @@
 <div class='title-and-actions'>
   <h1><%= @child.firstname %> <%= @child.lastname %>
-    <small><%= @class.name %></small
   </h1>
 <div class='top-right'>
-    <%= link_to 'Edit', edit_child_path(@child), :class => 'btn btn-info' %> 
-    <%= link_to 'Journal', journal_url(:id => @child.id), :class => 'btn btn-info' %>
-    <%= link_to 'Delete', @child, method: :delete, :class => 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_child_path(@child), :class => 'button' %> 
+    <%= link_to 'Journal', journal_url(:id => @child.id), :class => 'button' %>
+    <%= link_to 'Delete', @child, method: :delete, :class => 'button button-danger', data: { confirm: 'Are you sure?' } %>
   </div>
 </div>
 
-<div class='well'>
 <div class='row'>
   <div class='span4'>
     <% if @child.picture_file_name %>
@@ -20,30 +18,22 @@
     <% end %>
   </div>
   <div class='span6'>
-    <h4>Learning Area Progress</h4>
-    <%= goals_progress_summary(@entries, @areas) %>
-      <!-- tr>
-        <td>Goal 1</td>
-        <td><span class='progress' style='width: 40%'>
-
-        </span></td>
-      </tr>-->
-      
+      <%= goals_progress_summary(@entries, @areas) %>
     </table> 
     </table>  
   </div>  
 </div>
-</div>
-<hr/>
-<div class='title-and-actions'>
-  <h3>Latest Journal Entries</h3>
-  <div class='top-right'>
-    <%= link_to '+ Text', new_child_entry_path(@child, :entry_type_id => '1'), :class => 'btn btn-info' %>
-    <%= link_to '+ Observation', new_child_entry_path(@child, :entry_type_id => '2'), :class => 'btn btn-info' %>
-    <%= link_to '+ Photo', new_child_entry_path(@child, :entry_type_id => '3'), :class => 'btn btn-info' %>
-    <%= link_to '+ Art', new_child_entry_path(@child, :entry_type_id => '4'), :class => 'btn btn-info' %>
+
+  <hr/>
+  <div class='title-and-actions'>
+    <h3>Latest Journal Entries</h3>
+    <div class='top-right'>
+      <%= link_to '+ Text', new_child_entry_path(@child, :entry_type_id => '1'), :class => 'button' %>
+      <%= link_to '+ Observation', new_child_entry_path(@child, :entry_type_id => '2'), :class => 'button' %>
+      <%= link_to '+ Photo', new_child_entry_path(@child, :entry_type_id => '3'), :class => 'button' %>
+      <%= link_to '+ Art', new_child_entry_path(@child, :entry_type_id => '4'), :class => 'button' %>
+    </div>
   </div>
-</div>
 
 <table class="table">
   <tr>
