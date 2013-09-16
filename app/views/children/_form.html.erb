@@ -1,33 +1,35 @@
-<%= form_for(@child) do |f| %>
-  <% if @child.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
+<fieldset>
+  <%= form_for(@child) do |f| %>
+    <% if @child.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
 
-      <ul>
-      <% @child.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @child.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field hidden">
+      <%= f.label :class_id %><br />
+      <%= collection_select(:child, :class_id, @classes, :id, :name ) %>
+    </div>
+    <div class="field">
+      <%= f.label :firstname %><br />
+      <%= f.text_field :firstname %>
+    </div>
+    <div class="field">
+      <%= f.label :lastname %><br />
+      <%= f.text_field :lastname %>
+    </div>
+    <div class="field">
+      <%= f.label :dob %><br />
+      <%= f.date_select :dob %>
+    </div>
+    <div class="actions pull-right">
+      <%= f.submit(:class => 'button') %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :class_id %><br />
-    <%= collection_select(:child, :class_id, @classes, :id, :name ) %>
-  </div>
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %><br />
-    <%= f.date_select :dob %>
-  </div>
-  <div class="actions">
-    <%= f.submit(:class => 'btn btn-info') %>
-  </div>
-<% end %>
+</fieldset>

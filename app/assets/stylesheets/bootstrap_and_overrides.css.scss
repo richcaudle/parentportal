@@ -113,5 +113,45 @@ ul li
   line-height: 24px;
 }
 
+
+fieldset
+{
+  background-color: #eee;
+  margin: 2em 0;
+  padding: 2em;
+  float: left;
+  width: 600px;
+  border: 1px solid #ccc;
+}
+
+label
+{
+  font-size: 1.6em;
+}
+
+input, select
+{
+  font-size: 1.4em;
+}
+
+input[type="checkbox"]
+{
+  margin-right: 1em;
+  height: 1em;
+  width: 1em;
+}
+
+input[type="file"]
+{
+  line-height: 0.8em;
+  padding: 0;
+  margin: 0;
+}
+
+.checkboxes
+{
+  font-size: 1.4em;
+}
+
 @import "bootstrap-responsive";
 

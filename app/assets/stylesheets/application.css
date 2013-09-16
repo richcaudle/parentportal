@@ -117,6 +117,8 @@ a.filled
   width: 16em;
   padding: 0;
   float: left;
+  min-height: 900px;
+  height: 900px;
 }
 
 .logo
@@ -185,15 +187,15 @@ a.filled
 }
 
 .child-list td:nth-child(1) {
-  width: 150px;
+  width: 140px;
+}
+
+.child-list td:nth-child(2) {
+  width: 250px;
 }
 
 .child-list td:nth-child(3) {
-  width: 150px;
-}
-
-.child-list td:nth-child(4) {
-  width: 150px;
+  width: 500px;
 }
 
 .child-list ul li
@@ -206,15 +208,29 @@ a.filled
   width: 80%;
 }
 
-.pagecontent a.button, .pagecontent a.button:visited
+.pagecontent a.button, .pagecontent a.button:visited, .pagecontent input[type="submit"]
 {
   font-size: 15px;
   color: white;
   display: inline-block;
   background-color: #999;
   border-radius: 0.3em;
-  padding: 0.6em;
   text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.pagecontent a.button
+{
+  padding-top: 0.5em;
+  padding-bottom: 0.6em;
+}
+
+.pagecontent input[type="submit"]
+{
+  background-color: #ff7c0d;
+  border: none;
+  line-height: 2em;
 }
 
 .pagecontent a.button:hover
@@ -223,7 +239,6 @@ a.filled
   text-decoration: none;
   background-color: #ff7c0d;
 }
-
 
 .pagecontent a.button-danger
 {
@@ -270,4 +285,20 @@ a[tooltip]:after {
 a[tooltip]:hover:before, a[tooltip]:hover:after {
   visibility: visible;
   -moz-transition: visibility 0s linear .3s;
+}
+
+.hidden
+{
+  display: none;
+}
+
+.field select
+{
+  width: 10.5em;
+}
+
+.field textarea
+{
+  width: 97%;
+  height: 140px;
 }

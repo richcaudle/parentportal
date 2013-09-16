@@ -10,10 +10,12 @@
   	</td>
     <td>
       <h3><%= link_to child.firstname + ' ' + child.lastname, child %></h3>
-      <p>Date of birth: <%= child.dob.strftime("%e %B %Y") %></p>
-      <p>Last entry: TODO</p>
+      <p>Last entry: <%= last_entry_date(child) %></p>
+      <p>Total entries: <%= child.entries.length %></p>
     </td>
-    <td>TODO: Goals progress</td>
+    <td>
+      <%= goals_progress_summary(child.entries, @areas) %>
+    </td>
     <td>
       <ul>
         <li><%= link_to 'View', child, :class => 'button' %></li>

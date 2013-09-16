@@ -2,6 +2,7 @@ require 'fileutils'
 
 class Child < ActiveRecord::Base
   attr_accessible :class_id, :dob, :firstname, :lastname, :picture, :deleted
+  has_many :entries
 
   validates :firstname, :presence => true
   validates :lastname, :presence => true

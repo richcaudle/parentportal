@@ -2,7 +2,9 @@ class ChildrenController < ApplicationController
 
   # GET /children  
   def index
+    @areas = LearningArea.all
     @children = Child.my_children(session[:user_id])
+      .includes(:entries).where("entries.deleted" => false)
   end
 
   # GET /children/1
