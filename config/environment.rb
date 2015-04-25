@@ -8,9 +8,9 @@ Parentportal::Application.initialize!
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.sendgrid.net",
   :port => 25,
-  :domain => "rcaudle.co.uk",
+  :domain => "",
   :authentication => :plain,
-  :user_name => "rich_caudle",
-  :password => "pussboots50"
+  :user_name => "",
+  :password => ""
 }
 
